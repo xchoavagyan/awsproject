@@ -9,6 +9,6 @@ public class CustomController {
 
     @GetMapping(value = "/home")
     public ResponseEntity<String> create(){
-        return ResponseEntity.ok("pisik");
+        return ResponseEntity.ok("Barev pisik");
     }
 }
