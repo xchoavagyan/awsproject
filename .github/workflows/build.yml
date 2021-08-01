@@ -46,4 +46,4 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.REMOTE_KEY }}
           port: ${{ secrets.REMOTE_PORT }}
-          script: sudo systemctl restart name.service
+          script: sudo systemctl restart app.service
