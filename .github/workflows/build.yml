@@ -39,11 +39,11 @@ jobs:
           strip_components: 1
           target: "/home/ec2-user/app"
 
-#      - name: Start AWS API on server
-#        uses: appleboy/ssh-action@master
-#        with:
-#          host: ${{ secrets.REMOTE_IP }}
-#          username: ${{ secrets.REMOTE_USER }}
-#          key: ${{ secrets.REMOTE_KEY }}
-#          port: ${{ secrets.REMOTE_PORT }}
-#          script: sudo systemctl restart my-app.service
+      - name: Start AWS API on server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_IP }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.REMOTE_KEY }}
+          port: ${{ secrets.REMOTE_PORT }}
+          script: sudo systemctl restart name.service
