@@ -19,14 +19,14 @@ jobs:
       - name: Build package with Maven
         run: mvn -B package --file pom.xml -Dmaven.test.skip=true
 
-#      - name: Stop AWS API on server
-#        uses: appleboy/ssh-action@master
-#        with:
-#          host: ${{ secrets.REMOTE_IP }}
-#          username: ${{ secrets.REMOTE_USER }}
-#          key: ${{ secrets.REMOTE_KEY }}
-#          port: ${{ secrets.REMOTE_PORT }}
-#          script: sudo systemctl stop my-app.service
+      - name: Stop AWS API on server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_IP }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.REMOTE_KEY }}
+          port: ${{ secrets.REMOTE_PORT }}
+          script: sudo systemctl stop myapp.service
 
       - name: Copy file via ssh key
         uses: appleboy/scp-action@master
@@ -46,4 +46,4 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.REMOTE_KEY }}
           port: ${{ secrets.REMOTE_PORT }}
-          script: sudo systemctl start app.service
+          script: sudo systemctl start myapp.service
