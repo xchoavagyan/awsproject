@@ -11,7 +11,7 @@ public class CustomController {
     @GetMapping(value = "/home/{text}")
 
     public ResponseEntity<String> create(@PathVariable String text ){
-        text +=  "you write " + text;
+        text = "you write " + text;
         return ResponseEntity.ok(text);
     }
 }
