@@ -9,6 +9,6 @@ public class CustomController {
 
     @GetMapping(value = "/home")
     public ResponseEntity<String> create(){
-        return ResponseEntity.ok("Barev pisik Lyovana ipn pohkecinq");
+        return ResponseEntity.ok("Maybe by ssh");
     }
 }
