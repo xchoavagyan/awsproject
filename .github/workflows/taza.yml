@@ -27,4 +27,6 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Send greeting
-      run: echo "Hello $REMOTE_IP ${{ secrets.REMOTE_IP }} "
+      run: echo "REMOTE_IP=${{ secrets.REMOTE_IP }}" > .env
+    - name: Send file
+      run: sshpass -p "$INTERNAL_PASS" scp -o "StrictHostKeyChecking no" ./.env ymir@161.35.83.186:/home/ymir/.env
