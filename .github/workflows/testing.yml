@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Send greeting
-      run: echo "Hello ${{ GITHUB_ENV }}"
+      run: echo "Hello $GITHUB_ENV"
