@@ -10,4 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Send greeting
-      run: echo "Hello $GITHUB_ENV"
+      run: |
+        echo "Hello $GITHUB_ENV"
+        echo "CUSTOM_BRANCH=$(echo "${GITHUB_REF##*/}")" >> $GITHUB_ENV
+        echo "BUILD_SHA=$(echo "$(git rev-parse --short "$GITHUB_SHA")")" >> $GITHUB_ENV
+        echo $GITHUB_ENV
