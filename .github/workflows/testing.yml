@@ -9,8 +9,10 @@ jobs:
     env:
       SHA: ${GITHUB_SHA::7}
     steps:
-     - name: first step
-       run: |
-         echo ${GITHUB_SHA}
-         echo $SHA
-          
+    - uses: actions/checkout@v2
+    - name: Set env
+      run: echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-6)" >> $GITHUB_ENV
+    - name: Test
+      run: |
+        echo $GITHUB_SHA_SHORT
+        echo $GITHUB_SHA
