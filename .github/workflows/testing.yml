@@ -7,8 +7,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      SHA8: ${GITHUB_SHA::8}
+      SHA: ${GITHUB_SHA::7}
     steps:
      - name: first step
-       run: echo $SHA8
+       run: |
+         echo ${GITHUB_SHA}
+         echo $SHA
           
