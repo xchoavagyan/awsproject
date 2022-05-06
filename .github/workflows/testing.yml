@@ -4,13 +4,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  greet:
+  build:
     runs-on: ubuntu-latest
+    env:
+      SHA8: ${GITHUB_SHA::8}
     steps:
-    - uses: actions/checkout@master
-    - name: Send greeting
-      run: |
-        echo "GITHUB_CUSTOM_BRANCH=$(echo "${GITHUB_REF##*/}$(date +'-%d-%m-%Y-%H:%M:%S')")" >> $GITHUB_ENV
-        echo "${GITHUB_CUSTOM_BRANCH}"
-        echo "${GITHUB_REF}"
-        echo "${GITHUB_HEAD_REF}"
+     - name: first step
+       run: echo $SHA8
+          
